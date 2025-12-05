@@ -3,7 +3,7 @@ import { SheetData } from '../types';
 
 interface XSheetTableProps {
   data: SheetData;
-  tableRef?: React.RefObject<HTMLTableElement | null>;
+  tableRef?: React.RefObject<HTMLTableElement>;
 }
 
 const XSheetTable: React.FC<XSheetTableProps> = ({ data, tableRef }) => {
