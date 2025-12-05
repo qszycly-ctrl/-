@@ -83,20 +83,35 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onDataLoaded }) => {
         <FileSpreadsheet className="w-8 h-8 text-white" />
       </div>
       
-      <h3 className="text-xl font-semibold text-slate-200 mb-2">
+      <h3 className="text-xl font-semibold text-slate-200 mb-1 text-center">
         Import CSP CSV
       </h3>
-      <p className="text-slate-400 text-center mb-6">
-        Export your timeline from Clip Studio Paint as CSV, then drop it here to generate a Law Table (X-Sheet).
+      <p className="text-xs text-slate-500 mb-4 font-medium text-center">
+         导入 CSP CSV / CSP CSVをインポート
       </p>
       
-      <button className="px-6 py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium text-slate-200 rounded-lg transition-colors">
-        Browse Files
+      <p className="text-slate-400 text-center mb-1 text-sm max-w-lg">
+        Export your timeline from Clip Studio Paint as CSV, then drop it here to generate a Law Table (X-Sheet).
+      </p>
+      <p className="text-slate-500 text-xs text-center mb-6 max-w-lg leading-relaxed">
+        从 Clip Studio Paint 导出时间轴 CSV，拖入此处生成律表。
+        <br />
+        Clip Studio PaintからタイムラインをCSVで書き出し、ここにドロップして律表（タイムシート）を作成します。
+      </p>
+      
+      <button className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg transition-colors flex flex-col items-center gap-1 border border-slate-700">
+        <span className="text-sm font-medium">Browse Files</span>
+        <span className="text-xs text-slate-400">浏览文件 / ファイルを選択</span>
       </button>
 
       {error && (
-        <div className="mt-6 p-3 bg-red-900/50 border border-red-800 text-red-200 text-sm rounded-lg flex items-center gap-2">
-          <span>⚠️</span> {error}
+        <div className="mt-6 p-3 bg-red-900/50 border border-red-800 text-red-200 text-sm rounded-lg flex flex-col gap-1 w-full text-center">
+          <div className="flex items-center justify-center gap-2 font-medium">
+             <span>⚠️</span> {error}
+          </div>
+          <div className="text-xs text-red-300 opacity-75">
+             请确保上传的是有效的 CSV 文件。 / 有効なCSVファイルをアップロードしてください。
+          </div>
         </div>
       )}
     </div>

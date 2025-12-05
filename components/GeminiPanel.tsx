@@ -77,7 +77,10 @@ const GeminiPanel: React.FC<GeminiPanelProps> = ({ data, onClose }) => {
       <div className="flex items-center justify-between p-4 border-b border-slate-700 bg-slate-900">
         <div className="flex items-center gap-2 text-indigo-400">
           <Sparkles className="w-5 h-5" />
-          <h2 className="font-semibold text-white">AI Director</h2>
+          <div className="flex flex-col leading-none">
+            <h2 className="font-semibold text-white">AI Director</h2>
+            <span className="text-[10px] opacity-75">AI 导演 / AI 演出</span>
+          </div>
         </div>
         <button onClick={onClose} className="text-slate-400 hover:text-white">
           <X className="w-5 h-5" />
@@ -90,14 +93,20 @@ const GeminiPanel: React.FC<GeminiPanelProps> = ({ data, onClose }) => {
             <div className="bg-indigo-500/10 p-4 rounded-full inline-block mb-4">
               <MessageSquareQuote className="w-8 h-8 text-indigo-400" />
             </div>
-            <p className="text-slate-300 text-sm mb-6 px-4">
+            <p className="text-slate-300 text-sm mb-1 px-4">
               Ask Gemini to analyze your timing, detect loops, or summarize the action density of this cut.
+            </p>
+            <p className="text-slate-500 text-xs mb-6 px-4">
+              让 Gemini 分析您的时序、检测循环或总结动作密度。
+              <br/>
+              Geminiにタイミングの分析、ループの検出、アクション密度の要約を依頼します。
             </p>
             <button 
               onClick={analyzeSheet}
-              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-all shadow-lg shadow-indigo-900/40"
+              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-all shadow-lg shadow-indigo-900/40 flex flex-col items-center mx-auto"
             >
-              Analyze Sheet
+              <span>Analyze Sheet</span>
+              <span className="text-[10px] opacity-80 font-normal">分析律表 / シートを分析</span>
             </button>
           </div>
         )}
@@ -105,7 +114,10 @@ const GeminiPanel: React.FC<GeminiPanelProps> = ({ data, onClose }) => {
         {analysis.isLoading && (
           <div className="flex flex-col items-center justify-center mt-20 gap-4">
             <RefreshCw className="w-8 h-8 text-indigo-400 animate-spin" />
-            <p className="text-slate-400 text-sm">Reviewing frames...</p>
+            <div className="text-center">
+              <p className="text-slate-400 text-sm">Reviewing frames...</p>
+              <p className="text-slate-500 text-xs">正在审阅帧... / フレームを確認中...</p>
+            </div>
           </div>
         )}
 
@@ -128,9 +140,10 @@ const GeminiPanel: React.FC<GeminiPanelProps> = ({ data, onClose }) => {
         <div className="p-4 border-t border-slate-700 bg-slate-900">
            <button 
               onClick={analyzeSheet}
-              className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm transition-colors border border-slate-700"
+              className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm transition-colors border border-slate-700 flex flex-col items-center justify-center gap-0.5"
             >
-              Regenerate Analysis
+              <span>Regenerate Analysis</span>
+              <span className="text-[10px] text-slate-500">重新分析 / 再分析</span>
             </button>
         </div>
       )}

@@ -156,7 +156,10 @@ const App: React.FC = () => {
           </div>
           <div>
             <h1 className="font-bold text-lg tracking-tight">CSP X-Sheet Assistant</h1>
-            <p className="text-xs text-slate-400">Timeline to Law Table Converter</p>
+            <div className="flex flex-col text-xs text-slate-400">
+              <span>Timeline to Law Table Converter</span>
+              <span className="text-[10px] opacity-75">时间轴转律表工具 / タイムライン律表変換ツール</span>
+            </div>
           </div>
         </div>
 
@@ -195,14 +198,17 @@ const App: React.FC = () => {
             
             <button
               onClick={() => setShowAiPanel(!showAiPanel)}
-              className={`flex items-center gap-2 px-4 py-1.5 text-sm font-medium rounded-full transition-all ${
+              className={`flex items-center gap-2 px-3 py-1 text-sm font-medium rounded-full transition-all ${
                 showAiPanel 
                   ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/50' 
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
               }`}
             >
               <Sparkles className="w-4 h-4" />
-              <span>AI Analysis</span>
+              <div className="flex flex-col items-start leading-none py-0.5">
+                <span>AI Analysis</span>
+                <span className="text-[9px] opacity-80 font-normal">AI 分析 / 分析</span>
+              </div>
             </button>
             <button
               onClick={handleClear}
@@ -228,25 +234,29 @@ const App: React.FC = () => {
                 <div className="p-4 bg-slate-900/50 rounded-lg border border-slate-800">
                   <div className="mb-2 text-indigo-400"><FileOutput className="w-5 h-5"/></div>
                   <h4 className="text-slate-200 font-medium mb-1">CSP Export</h4>
-                  <p className="text-xs">Supports Timeline CSV exports from Clip Studio Paint EX.</p>
+                  <p className="text-xs mb-1">Supports Timeline CSV exports from Clip Studio Paint EX.</p>
+                  <p className="text-[10px] text-slate-500">支持 CSP EX 时间轴 CSV 导出。<br/>CSP EXのタイムラインCSV書き出しに対応。</p>
                 </div>
                 <div className="p-4 bg-slate-900/50 rounded-lg border border-slate-800">
                   <div className="mb-2 text-indigo-400"><LayoutTemplate className="w-5 h-5"/></div>
                   <h4 className="text-slate-200 font-medium mb-1">Digital X-Sheet</h4>
-                  <p className="text-xs">Visualizes data in a vertical, traditional animation sheet format.</p>
+                  <p className="text-xs mb-1">Visualizes data in a vertical, traditional animation sheet format.</p>
+                  <p className="text-[10px] text-slate-500">以传统竖式律表格式可视化数据。<br/>伝統的な縦型タイムシート形式でデータを可視化します。</p>
                 </div>
                 <div className="p-4 bg-slate-900/50 rounded-lg border border-slate-800">
                   <div className="mb-2 text-indigo-400"><Sparkles className="w-5 h-5"/></div>
                   <h4 className="text-slate-200 font-medium mb-1">Smart Insights</h4>
-                  <p className="text-xs">Uses Gemini Flash to summarize timing and action.</p>
+                  <p className="text-xs mb-1">Uses Gemini Flash to summarize timing and action.</p>
+                  <p className="text-[10px] text-slate-500">使用 Gemini Flash 总结时序与动作。<br/>Gemini Flashを使用してタイミングとアクションを要約します。</p>
                 </div>
               </div>
             </div>
           ) : (
             <div className="w-full h-full flex flex-col">
               <div className="mb-2 flex items-center justify-between px-2">
-                 <h2 className="text-sm font-bold text-slate-400 uppercase tracking-wider">
-                   {sheetData.name} &bull; {sheetData.rows.length} Frames
+                 <h2 className="text-sm font-bold text-slate-400 uppercase tracking-wider flex items-baseline gap-2">
+                   <span>{sheetData.name}</span>
+                   <span className="text-xs font-normal opacity-75">&bull; {sheetData.rows.length} Frames (帧/フレーム)</span>
                  </h2>
                  <div className="text-xs text-slate-500 font-mono">
                    24 FPS Grid
