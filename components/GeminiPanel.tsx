@@ -16,18 +16,10 @@ const GeminiPanel: React.FC<GeminiPanelProps> = ({ data, onClose }) => {
   });
 
   const analyzeSheet = async () => {
-    if (!process.env.API_KEY) {
-      setAnalysis({
-        isLoading: false,
-        result: null,
-        error: "API Key is missing in environment variables.",
-      });
-      return;
-    }
-
     setAnalysis({ isLoading: true, result: null, error: null });
 
     try {
+      // @ts-ignore
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       // Prepare a prompt with a summary of the data to avoid token limits if the sheet is huge
