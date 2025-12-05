@@ -1,0 +1,5 @@
+{
+  "name": "CSP X-Sheet Assistant",
+  "description": "A tool to import Clip Studio Paint timeline CSVs, visualize them as digital Exposure Sheets (律表), and analyze timing with Gemini AI.",
+  "requestFramePermissions": []
+}
